@@ -6,7 +6,7 @@ const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         // Check if user is already logged in on mount
@@ -51,7 +51,7 @@ const AuthProvider = ({children}) => {
     const updateUser = async () => {
         try {
             const updatedUser  = await authService.getProfile();
-            setUser(updateUser);
+            setUser(updatedUser);
         } catch (error) {
             console.error('Failed to update user:', error);          
         }
@@ -65,7 +65,7 @@ const AuthProvider = ({children}) => {
         updateUser,
         isAuthenticated: !!user,
         isEmployer: user?.user_type == 'employer',
-        iseJobSeeker: user?.user_type == 'job_seeker',
+        isJobSeeker: user?.user_type == 'job_seeker',
     };
 
     if (loading) {
