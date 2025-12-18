@@ -141,6 +141,20 @@ class JobApplicationCreateView(generics.CreateAPIView):
         serializer.save(applicant=applicant_profile)
         
 
+class JobSeekerApplicationListView(generics.ListAPIView):
+    """
+    API endpoint for job seeker to view their application
+    GET: List all applications submitted by the job seeker.
+    """
+    serializer_class = JobApplicationSerializer
+    permission_classes = [permissions.IsAuthenticated, IsJobSeeker]
+    
+    def get_queryset(self):
+        return JobApplication.objects.filter(
+            applcant__user=self.request.user
+        ).select_related('job', 'job__employer').order_by('-applied_at')
+
+
 class EmployerApplicationListView(generics.ListAPIView):
     """
     API endpoint for employer to view applications for their jobs

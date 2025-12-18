@@ -40,6 +40,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     """
 
     USER_TYPE_CHOICES = (
+        ('admin', 'Admin'),
         ('job_seeker', 'Job Seeker'),
         ('employer', 'Employer'),
     )
