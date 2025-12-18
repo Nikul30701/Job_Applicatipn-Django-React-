@@ -36,7 +36,7 @@ A full-stack job portal application built with Django REST Framework and React.
 ### Backend
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/job-portal.git
+git clone https://github.com/Nikul30701/Job_Applicatipn-Django-React-
 cd job-portal/backend
 
 # Create virtual environment
@@ -96,11 +96,6 @@ Base URL: `http://localhost:8000/api`
 - GET `/jobs/applications/my-applications/` - Get my applications
 - GET `/jobs/employer/applications/` - Get applications (employer)
 
-## Deployment
-
-- Backend: [Railway](https://railway.app) / [Render](https://render.com)
-- Frontend: [Vercel](https://vercel.com) / [Netlify](https://netlify.com)
-- Database: PostgreSQL
 
 ## Contributing
 
